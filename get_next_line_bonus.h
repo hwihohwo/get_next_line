@@ -6,7 +6,7 @@
 /*   By: seonghwc <seonghwc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 02:31:53 by seonghwc          #+#    #+#             */
-/*   Updated: 2022/10/28 03:11:27 by seonghwc         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:20:51 by seonghwc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char	*ft_strjoin_gnl(char *str1, char *str2);
 int		ft_strlen_gnl(char *str);
 char	*ft_strdup_gnl(char *str);
 char	*cut_and_free(char *static_string);
-
+void	free_(char *buffer, char *static_string);
 #endif

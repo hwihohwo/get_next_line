@@ -6,11 +6,18 @@
 /*   By: seonghwc <seonghwc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:48:54 by seonghwc          #+#    #+#             */
-/*   Updated: 2022/10/28 02:25:47 by seonghwc         ###   ########.fr       */
+/*   Updated: 2022/11/25 19:17:52 by seonghwc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	free_all(char *buffer, char **static_string)
+{
+	free(buffer);
+	free(*static_string);
+	*static_string = NULL;
+}
 
 char	*get_next_line(int fd)
 {
@@ -24,15 +31,13 @@ char	*get_next_line(int fd)
 	buffer[BUFFER_SIZE] = '\0';
 	if (read_and_check(fd, buffer, &static_string) == -1)
 	{
-		free(buffer);
-		free(static_string);
+		free_all(buffer, &static_string);
 		return (NULL);
 	}
 	temp = ft_strdup_gnl(static_string);
 	if (temp == NULL)
 	{
-		free(buffer);
-		free(static_string);
+		free_all(buffer, &static_string);
 		return (NULL);
 	}
 	static_string = cut_and_free(static_string);
