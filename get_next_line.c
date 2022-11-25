@@ -6,7 +6,7 @@
 /*   By: seonghwc <seonghwc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:48:54 by seonghwc          #+#    #+#             */
-/*   Updated: 2022/11/25 19:17:52 by seonghwc         ###   ########.fr       */
+/*   Updated: 2022/11/25 21:17:48 by seonghwc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	free_all(char *buffer, char **static_string)
 {
 	free(buffer);
-	free(*static_string);
+	if (*static_string != NULL)
+		free(*static_string);
 	*static_string = NULL;
 }
 
